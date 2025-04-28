@@ -1,0 +1,149 @@
+/* index.css */
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #ecf0f1;
+  color: #34495e;
+  height: 100%;
+  width: 100%;
+}
+
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ecf0f1;
+  color: #34495e;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Links and Button styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* Full-Page Layout */
+.full-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.full-page .container {
+  max-width: 1000px;
+  margin: 20px;
+}
+
+/* Basic Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+/* Button styles */
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 30px; /* Rounded button style */
+  background-color: #3498db; /* Primary blue color */
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+button:active {
+  background-color: #1c6388; /* Even darker blue when active */
+}
+
+button:disabled {
+  background-color: #7f8c8d;
+}
+
+/* Modal/Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Consistent Workout Theme */
+body, .nav-link, button {
+  font-family: 'Poppins', sans-serif;
+  color: #34495e;
+}
+
+/* Color Palette */
+.primary-color {
+  color: #2ecc71; /* Workout green */
+}
+
+.secondary-color {
+  color: #e74c3c; /* Workout red */
+}
+
+.background-color {
+  background-color: #ecf0f1; /* Light background */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,74 @@
+.header {
+    background-color: #1c1f26;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    position: relative; /* Needed for absolute positioning of title */
+    display: flex;
+    justify-content: flex-end; /* Push nav to the right */
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid #2ecc71;
+    font-family: 'Poppins', sans-serif;
+    height: 70px;
+  }
+  
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #2ecc71;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: #2ecc71;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+  }
+  
+  .nav-link:hover {
+    color: #2ecc71;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .sign-out-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  }
+  
+  .sign-out-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+  }
+  

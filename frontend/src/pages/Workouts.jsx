@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import WorkoutForm from '../components/WorkoutForm';
 import WorkoutList from '../components/WorkoutList';
 
-const API_URL = 'http://localhost:5001/workouts';
+const API_URL = 'https://workoutlog-hbh6hkhfe0e7e4hk.centralus-01.azurewebsites.net/workouts';
 
 const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);

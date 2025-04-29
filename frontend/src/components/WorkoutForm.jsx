@@ -1,7 +1,20 @@
-// src/components/WorkoutForm.jsx
-import React from 'react';
+import React, { useState } from 'react';
 
 const WorkoutForm = ({ formData, handleInputChange, onSubmit, isEditing }) => {
+  const [customWorkout, setCustomWorkout] = useState(false); // state to track if user wants to enter a custom workout
+
+  const handleWorkoutTypeChange = (e) => {
+    const value = e.target.value;
+    if (value === 'custom') {
+      setCustomWorkout(true);
+      // clear the workout_type if they pick custom
+      handleInputChange({ target: { name: 'workout_type', value: '' } });
+    } else {
+      setCustomWorkout(false);
+      handleInputChange(e);
+    }
+  };
+
   return (
     <form onSubmit={onSubmit} style={styles.form}>
       <input
@@ -20,10 +33,11 @@ const WorkoutForm = ({ formData, handleInputChange, onSubmit, isEditing }) => {
         placeholder="Your Name"
         required
       />
+      {/* Dropdown for workout type */}
       <select
         name="workout_type"
-        value={formData.workout_type}
-        onChange={handleInputChange}
+        value={customWorkout ? 'custom' : formData.workout_type}
+        onChange={handleWorkoutTypeChange}
         required
       >
         <option value="">Select Type</option>
@@ -39,7 +53,21 @@ const WorkoutForm = ({ formData, handleInputChange, onSubmit, isEditing }) => {
         <option value="endurance">Endurance</option>
         <option value="circuit">Circuit</option>
         <option value="crossfit">Crossfit</option>
+        <option value="custom">Other (type your own)</option> {/* New option */}
       </select>
+
+      {/* Only show this if customWorkout is true */}
+      {customWorkout && (
+        <input
+          type="text"
+          name="workout_type"
+          value={formData.workout_type}
+          onChange={handleInputChange}
+          placeholder="Enter custom workout type"
+          required
+        />
+      )}
+
       <textarea
         name="notes"
         value={formData.notes}

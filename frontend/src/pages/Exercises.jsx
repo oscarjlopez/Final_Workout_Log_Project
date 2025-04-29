@@ -8,7 +8,7 @@ import MotivationalQuote from '../components/MotivationalQuote';
 import ErrorBoundary from '../components/ErrorBoundary';
 import Footer from '../components/Footer';
 
-const EXERCISE_API_URL = 'http://localhost:5001/exercises';
+const EXERCISE_API_URL = 'https://workoutlog-hbh6hkhfe0e7e4hk.centralus-01.azurewebsites.net/exercises';
 
 const Exercises = () => {
   const { workoutId } = useParams();

@@ -5,7 +5,6 @@ const ExerciseTable = ({ exercises, onEdit, onDelete }) => {
     <table style={styles.table}>
       <thead>
         <tr>
-          <th>ID</th>
           <th>Workout Name</th>
           <th>Sets</th>
           <th>Reps</th>
@@ -17,7 +16,6 @@ const ExerciseTable = ({ exercises, onEdit, onDelete }) => {
         {exercises.length > 0 ? (
           exercises.map((exercise) => (
             <tr key={exercise.id}>
-              <td>{exercise.id}</td>
               <td>{exercise.workout_name}</td>
               <td>{exercise.sets}</td>
               <td>{Array.isArray(exercise.reps_per_set) ? exercise.reps_per_set.join(', ') : 'No reps available'}</td>

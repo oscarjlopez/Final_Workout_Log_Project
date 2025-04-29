@@ -1,4 +1,3 @@
-// src/pages/Callback.jsx
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '@asgardeo/auth-react';
@@ -7,18 +6,18 @@ const Callback = () => {
   const { state, signIn } = useAuthContext();
   const navigate = useNavigate();
 
+  // Trigger sign-in only after auth context has loaded and if not authenticated
   useEffect(() => {
-    // Trigger the sign-in only if user is not authenticated
-    if (!state?.isAuthenticated) {
+    if (!state?.isLoading && !state?.isAuthenticated) {
       signIn().catch((err) => {
         console.error("Error during sign-in:", err);
         navigate("/"); // Redirect to home on error
       });
     }
-  }, [signIn, state?.isAuthenticated, navigate]);
+  }, [state?.isLoading, state?.isAuthenticated, signIn, navigate]);
 
+  // Once authenticated, redirect to workouts
   useEffect(() => {
-    // Once authenticated, redirect to /workouts
     if (state?.isAuthenticated) {
       navigate("/workouts");
     }

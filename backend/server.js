@@ -8,7 +8,7 @@ const { getMotivationalQuote } = require('./motivationalQuoteAI');
 const { sendWorkoutEmail } = require('./sendgridclient');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -219,18 +219,23 @@ app.post('/exercises', async (req, res) => {
     const newExercise = await Exercise.create({
       workout_id,
       workout_name,
-      sets,
+      sets: parseInt(sets), // 👈 IMPORTANT
       reps_per_set: repsArray,
       weight_per_set: weightsArray
+    
+    
     });
 
     const motivationalQuote = await getMotivationalQuote(workout_name);
     res.status(201).json({ newExercise, motivationalQuote });
 
   } catch (error) {
-    console.error('Error adding exercise:', error.message || error);
+    console.error('Error adding exercise:', error);  // FULL error object
+    console.error('Received request body:', req.body); 
     res.status(500).send('Internal Server Error');
   }
+  
+  
 });
 
 // PUT: Update exercise

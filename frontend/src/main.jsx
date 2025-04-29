@@ -5,8 +5,8 @@ import App from "./App.jsx";
 import "./index.css";
 
 const authConfig = {
-    signInRedirectURL: "http://localhost:5173/callback",  // Set to the page where user should return after login
-    signOutRedirectURL: "http://localhost:5173/callback", // You can set this to redirect to the homepage on sign out
+    signInRedirectURL: "https://final-workout-log-project.vercel.app/",  // Set to the page where user should return after login
+    signOutRedirectURL: "https://final-workout-log-project.vercel.app/", // You can set this to redirect to the homepage on sign out
     clientID: "lNtUTcUTQywdWtn_V104UQ7v0zUa",
     baseUrl: "https://api.asgardeo.io/t/mis372t",
     scope: ["openid", "profile"]
